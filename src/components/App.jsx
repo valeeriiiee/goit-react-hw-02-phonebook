@@ -26,6 +26,20 @@ export class App extends Component {
     }));
   };
 
+  setFilter = filterValue => {
+    this.setState({
+      filter: filterValue,
+    });
+  };
+
+  filterContact = () => {
+    const { contacts, filter } = this.state;
+    const filterLowerCase = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filterLowerCase)
+    );
+  };
+
   render() {
     const { contacts } = this.state;
     return (
