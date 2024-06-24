@@ -3,14 +3,14 @@ import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import PropTypes from 'prop-types';
 
-export default class ContactForm extends Component {
+export class ContactForm extends Component {
   static propTypes = {
     addContact: PropTypes.func.isRequired,
     contacts: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        number: PropTypes.number.isRequired,
+        number: PropTypes.string.isRequired,
       })
     ),
   };
@@ -62,7 +62,7 @@ export default class ContactForm extends Component {
 
     //   Add contact
     addContact({
-      id: nanoid,
+      id: nanoid(),
       name: name.trim(),
       number: number.trim(),
     });
