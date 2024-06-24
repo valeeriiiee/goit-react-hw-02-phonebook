@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import ContactForm from './ContactForm/ContactForm';
 
 export class App extends Component {
   state = {
@@ -26,9 +27,11 @@ export class App extends Component {
   };
 
   render() {
+    const { contacts } = this.state;
     return (
       <div>
         <h1>Phonebook</h1>
+        <ContactForm addContact={this.addContact} contacts={contacts} />
         <h2>Contacts</h2>
       </div>
     );
