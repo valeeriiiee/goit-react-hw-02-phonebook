@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import css from './ContactForm.module.css';
 import PropTypes from 'prop-types';
 
 export default class ContactForm extends Component {
@@ -55,7 +56,7 @@ export default class ContactForm extends Component {
       contact => contact.number === number
     );
     if (existingContactNumber) {
-      alert(`${number} is already in contacts`);
+      alert(`The number ${number} is already in contacts`);
       return;
     }
 
@@ -76,9 +77,9 @@ export default class ContactForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          <p>Name</p>
+      <form className={css.contactForm} onSubmit={this.handleSubmit}>
+        <label className={css.formInput}>
+          <p className={css.formHeader}>Name</p>
           <input
             type="text"
             name="name"
@@ -89,8 +90,8 @@ export default class ContactForm extends Component {
             onChange={this.handleNameChange}
           />
         </label>
-        <label>
-          <p>Number</p>
+        <label className={css.formInput}>
+          <p className={css.formHeader}>Number</p>
           <input
             type="tel"
             name="number"
@@ -101,7 +102,9 @@ export default class ContactForm extends Component {
             onChange={this.handleNumberChange}
           />
         </label>
-        <button type="submit">Add Contact</button>
+        <button className={css.contactFormButton} type="submit">
+          Add Contact
+        </button>
       </form>
     );
   }
