@@ -1,3 +1,4 @@
+import css from './Filter.module.css';
 import PropTypes from 'prop-types';
 
 export const Filter = ({ filter, setFilter }) => {
@@ -7,8 +8,8 @@ export const Filter = ({ filter, setFilter }) => {
   };
 
   return (
-    <div>
-      <p>Find Contacts by Name</p>
+    <div className={css.filter}>
+      <p className={css.filterHeader}>Find Contacts by Name</p>
       <input
         type="text"
         name="filter"
